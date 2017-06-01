@@ -10,7 +10,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>applicatio-war</artifactId>
+    <artifactId>application-war</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
