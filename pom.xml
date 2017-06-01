@@ -8,6 +8,7 @@
     <artifactId>public-service-system</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>front-end</module>
         <module>application-war</module>
