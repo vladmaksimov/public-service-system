@@ -3,4 +3,4 @@
 application-war/target
 back-end/target
 front-end/target
-/.gitignore
+front-end/node_modules
