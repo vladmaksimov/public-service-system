@@ -1,2 +1,6 @@
 .idea
 *.iml
+application-war/target
+back-end/target
+front-end/target
+/.gitignore
