@@ -4,3 +4,6 @@ application-war/target
 back-end/target
 front-end/target
 front-end/node_modules
+dist
+
+npm-debug.log
