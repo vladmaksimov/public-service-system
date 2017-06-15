@@ -16,6 +16,12 @@ export default function stateConfig($stateProvider) {
             },
             template: '<ui-view/>'
         })
+        .state('hello', {
+            url: '/hello',
+            template: require('../controllers/hello/hello.controller.html'),
+            controller: 'HelloController',
+            controllerAs: 'vm'
+        })
         .state('secure.home', {
             url: '/',
             template: require('../controllers/home-page/home-page.controller.html'),

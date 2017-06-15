@@ -8,10 +8,11 @@ import interceptorConfig from './configs/interceptor.config';
 
 // controllers
 import LoginController from './controllers/login/login-page.controller';
-// import HomePageController from './controllers/home-page/home-page.controller';
+import HomePageController from './controllers/home-page/home-page.controller';
+import HelloController from './controllers/hello/hello.controller';
 
 // services
-// import userService from './services/user.service';
+import userService from './services/user.service';
 import httpRequestInterceptor from './services/http-request.interceptor';
 
 // run functions
@@ -21,15 +22,17 @@ import registerAngularBusy from './components/angular-busy/angular-busy.run';
 // vendor
 import vendorModule from './vendor';
 
-
 const moduleName = angular
     .module('app', [vendorModule])
     .config(routeConfig)
-    .config(stateConfig)
     .config(langConfig)
+    .config(stateConfig)
     .config(interceptorConfig)
     .controller('LoginController', LoginController)
-    .factory(httpRequestInterceptor)
+    .controller('HomePageController', HomePageController)
+    .controller('HelloController', HelloController)
+    .service('userService', userService)
+    .factory('httpRequestInterceptor', httpRequestInterceptor)
     .run(onStateChangeError)
     .run(registerAngularBusy)
     .name;

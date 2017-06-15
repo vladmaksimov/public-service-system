@@ -4,6 +4,7 @@ var path = require('path'),
     webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
+
 module.exports = {
     entry: {
         'angularjs-app': './src/main/app.js'
@@ -18,34 +19,47 @@ module.exports = {
     devtool: 'eval',
 
     module: {
-        loaders: [
+        rules: [
+
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
-            }, {
+                use: [ 'style-loader', 'css-loader' ]
+            },{
                 test: /\.scss$/,
-                loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader'
-            },
-            {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                loader: 'ng-annotate-loader?add=true!babel-loader?presets[]=es2015'
-            },
-            {
+                use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+            }, {
                 test: /\.html$/,
                 loader: 'raw-loader'
             },
             {
-                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-                loader: 'file-loader?name=assets/[name].[hash].[ext]'
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: 'file-loader?name=img/img-[hash:6].[ext]',
+                options: {
+                    limit: 10000
+                }
+            },
+            {
+                test: /\.(js|es6)$/,
+                exclude: /node_modules/,
+                loader: 'ng-annotate-loader?add=true!babel-loader?presets[]=es2015',
             }
+        ],
+        loaders: [
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: "file-loader?name=img/img-[hash:6].[ext]"
+            },{
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                loader: 'ng-annotate?add=true!babel?presets[]=es2015'
+            },
         ]
     },
 
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/main/index.html',
-            // chunks: ['angularjs-app'],
+            chunks: ['angularjs-app'],
             inject: 'body'
         }),
 

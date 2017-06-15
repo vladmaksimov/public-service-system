@@ -18,8 +18,9 @@ import 'angular-busy/angular-busy.css';
 // local dependencies
 
 // components and directives
-// import homePageComponent from './components/home-page/home-page.component';
-// import helloDirective from './components/hello/hello.directive';
+import homePageComponent from './components/home-page/home-page.component';
+import helloComponent from './components/hello/hello.component';
+import helloDirective from './components/hello/hello.directive';
 
 // filters
 // import upperCaseFilterFunction from './common/filters/upper-case.filter';
@@ -33,11 +34,12 @@ export default angular
         ngAnimate,
         uibootstrap,
         smartTable,
-        'cgBusy'
+        'cgBusy',
 
         // local dependencies
-        // homePageComponent,
-        // helloDirective
+        homePageComponent,
+        helloComponent,
+        helloDirective
     ])
     // .filter('upperCase', upperCaseFilterFunction)
     .name;
